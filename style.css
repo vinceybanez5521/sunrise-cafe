@@ -1,0 +1,615 @@
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,900&family=Poppins:wght@300&display=swap");
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-font: "Poppins", sans-serif;
+  --heading-font: "Merriweather", serif;
+  --primary-color: #885053;
+  --secondary-color: #542628;
+  --accent-color: #fe5f55;
+  --accent-color-dark: #ff4639;
+  --black: #333;
+  --white: #f5f5f5;
+}
+
+body {
+  font-family: var(--primary-font);
+  font-size: 100%;
+  line-height: 1.8;
+}
+
+body::before {
+  content: "";
+  display: block;
+  padding-top: 80px;
+}
+
+/* Global styles */
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p {
+  text-align: justify;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  background-color: unset;
+  cursor: pointer;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--white);
+}
+
+/* Navbar */
+.navbar {
+  height: 80px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--white);
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-brand {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+#brand-logo {
+  width: 50px;
+}
+
+#brand-name {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-nav a {
+  display: block;
+  position: relative;
+}
+
+.navbar-nav a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--primary-color);
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 1s ease;
+}
+
+.navbar-nav a:hover::after {
+  transform: scale(1);
+}
+
+.navbar-toggle {
+  font-size: 1.5rem;
+  position: absolute;
+  left: 1rem;
+  color: var(--primary-color);
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  display: none;
+  z-index: 100;
+}
+
+/* Header */
+.header {
+  height: calc(100vh - 80px);
+  background-image: url("images/coffee-shop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+}
+
+.header .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .container {
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header h1 {
+  font-size: 4rem;
+  font-style: italic;
+}
+
+.header p {
+  font-size: 1.5rem;
+}
+
+/* Featured Products, Menu */
+.featured-products .container,
+.menu .container {
+  padding: 4rem 0;
+}
+
+.featured-products h2 {
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0.5rem;
+}
+
+.product {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
+  flex: 1 0 30%;
+}
+
+.product-title {
+  margin-bottom: 1rem;
+}
+
+.product-image {
+  height: 300px;
+  max-height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.product-image img:hover {
+  transform: scale(1.3);
+}
+
+.product-desc {
+  margin: 0.5rem 0 0.5rem 0;
+  max-height: 100px;
+  overflow: hidden;
+  padding: 0.5rem 0;
+}
+
+.product-price {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.add-to-cart {
+  background-color: var(--accent-color);
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--white);
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.add-to-cart:hover {
+  background-color: var(--accent-color-dark);
+}
+
+.menu h2 {
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.menu .products {
+  margin-bottom: 1.5rem;
+}
+
+/* Newsletter */
+.newsletter {
+  background-image: url("images/coffee-shop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.newsletter .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.newsletter .container {
+  padding: 5rem 0;
+}
+
+.newsletter h2 {
+  color: var(--white);
+}
+
+.newsletter form {
+  color: var(--white);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.newsletter form button,
+.contact form button {
+  color: var(--white);
+  background-color: var(--accent-color);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 0.8rem;
+}
+
+/* Form */
+.form-group {
+  flex: 1 0 48%;
+}
+
+.form-group label {
+  display: block;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  outline: 0;
+  border: 0;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: var(--primary-font);
+}
+
+form button[type="submit"] {
+  display: inline-block;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--accent-color-dark);
+}
+
+/* About US */
+.header.about {
+  height: 300px;
+}
+
+.history .container {
+  padding: 4rem 0;
+}
+
+.history h2 {
+  margin-bottom: 1.5rem;
+}
+
+.history img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 500px;
+  border-radius: 5px;
+}
+
+.history p {
+  margin-top: 1rem;
+  text-indent: 3rem;
+}
+
+.history p::first-letter {
+  font-size: 3rem;
+  font-family: var(--heading-font);
+  font-style: italic;
+  line-height: 1.2;
+}
+
+/* Our Stores */
+.stores .container {
+  padding: 4rem 0;
+}
+
+.stores h2 {
+  margin-bottom: 1.5rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 500px;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid var(--black);
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* thead {
+  background-color: var(--primary-color);
+  color: var(--white);
+} */
+
+/* tfoot {
+  background-color: var(--accent-color);
+  color: white;
+} */
+
+tfoot td {
+  font-weight: bold;
+}
+
+/* Contact US */
+.contact .container {
+  padding: 4rem 0;
+}
+
+.contact .form-group {
+  margin-bottom: 1rem;
+}
+
+.contact .form-group input[type="text"],
+.contact .form-group input[type="email"],
+.contact textarea {
+  border: 0.2px solid var(--black);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.footer .container {
+  padding: 4rem 0;
+}
+
+.footer .links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .links ul {
+  flex: 1;
+}
+
+.footer .social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer .social a {
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.footer .nav-links a {
+  color: var(--white);
+}
+
+.footer hr {
+  margin: 1rem 0;
+}
+
+.back-to-top {
+  color: var(--white);
+  background-color: var(--accent-color);
+  font-size: 1rem;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 3.2rem;
+  right: 3.2rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: 200;
+}
+
+.back-to-top.active {
+  opacity: 1;
+}
+
+/********************************** Mobile Styles **********************************/
+@media screen and (max-width: 768px) {
+  /* Navbar */
+  #brand-logo {
+    margin-left: 2rem;
+  }
+
+  #brand-name {
+    display: none;
+  }
+
+  .navbar-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 1rem;
+    display: none;
+  }
+
+  .navbar-nav a:hover::after {
+    transform: scale(0);
+  }
+
+  .navbar-nav a:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-nav.active,
+  .close-btn.active {
+    display: block;
+  }
+
+  body.active {
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header .container {
+    padding: 0 2rem;
+  }
+
+  .header h1 {
+    font-size: 3rem;
+  }
+
+  .header p {
+    font-size: 1.2rem;
+  }
+
+  /* Product */
+  .product {
+    flex: 1 0 50%;
+  }
+
+  /* Form */
+  .form-group {
+    flex: 1 0 100%;
+    margin-top: 1rem;
+  }
+
+  /* About Us */
+  .history .container {
+    padding: 2rem 0;
+  }
+
+  .history p {
+    text-indent: 0;
+  }
+
+  /* Menu */
+  .menu .container {
+    padding: 2rem 0;
+  }
+
+  /* Contact Us */
+  .contact .container {
+    padding: 2rem 0;
+  }
+
+  /* Footer */
+  .footer .container {
+    padding: 1.5rem 0;
+  }
+
+  .footer .links {
+    flex-direction: column;
+  }
+
+  .footer .links ul {
+    margin-bottom: 1.5rem;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/****************************** Extra-small devices **************************************/
+@media screen and (max-width: 500px) {
+  .add-to-cart {
+    position: static;
+  }
+}
